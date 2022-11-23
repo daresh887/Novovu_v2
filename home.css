@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+body {
+    background-color: #f1f2eb;
+    animation: 4s ease-out 0s 1 FadeIn;
+}
+
+p, a {
+    font-family: 'Roboto Mono', monospace;
+    color: #5E6472;
+}
+
+.update_container_text {
+    color: #5E6472;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+}
+
+.navbar { 
+    background-color: #d8dad3;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #5E6472;
+}
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: #292b31;
+}
+
+.update_text, .update_container_text {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px; 
+}
+
+#update {
+    background-color: #a4c2a5;
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+#update_box {
+    width: 500px;
+    height: 400px;
+    margin-top: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border: 2px solid white;
+}
+
+#sidebar {
+    min-width: 17rem;
+    width: 17rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    transition: all 0.4s;
+}
+
+#sidebar.active {
+    margin-left: -17rem;
+}
+
+#content {
+    width: calc(100% - 17rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+}
+
+#content.active {
+    width: 100%;
+    margin: 0;
+}
+
+#vertical_text {
+    font-size: 2em;
+}
+
+#horizontal_text {
+    font-size: 1.3em;
+    padding-left: 10px;
+}
+
+@keyframes FadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+}
+
+.welcome {
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 2em;
+}
+
+#logout {
+    margin-left: 400px;
+}

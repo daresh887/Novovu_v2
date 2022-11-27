@@ -3,8 +3,13 @@ const port = 3000;
 const app = Express();
 
 
-app.get("/backend", function(req, res){
-    res.send("backend of the server :) ")
+app.set('view engine', 'ejs');
+app.use("/assets",Express.static('assets'));
+
+
+
+app.get("/", function(req, res){
+    res.render("home", {user:"TestingDan"})
 })
 
 

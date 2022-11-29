@@ -3,7 +3,7 @@
 
 body {
     background-color: #f1f2eb;
-    animation: 4s ease-out 0s 1 FadeIn;
+    animation: 2s ease-out 0s 1 FadeIn;
 }
 
 p, a {

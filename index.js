@@ -1,39 +1,32 @@
 import Express from "express";
-const port = 3000;
-const app = Express();
 
-var loggedin = false;
+const PORT = 3000;
+const app = Express();
+var username = undefined
 
 app.set('view engine', 'ejs');
-app.use("/assets",Express.static('assets'));
+app.use("/assets", Express.static('assets'));
+app.use(Express.urlencoded({ extended: false }));
 
 
-app.post("/register", function(req, res){
-    // this should stay here for now
-    // change later 
-    loggedin = true
-    res.redirect("/")
-    
+app.post("/register", (req, res) => {
+    username = req.body.username
+    res.redirect("/");
 })
 
-app.get("/register", function(req, res){
-    if (!loggedin == true) {
-        res.render("register", {user:"TestingDan"})
-    }
-    else{
-        res.redirect("/home")
-    }
+app.get("/register", (req, res) => {
+    res.render("register");
 })
 
-app.get("/", function(req, res){
-    // change later
-    if (loggedin == true) {
-        res.render("home", {user:"TestingDan"})
-    }
-    else{
+app.get("/", (req, res) => {
+    if(username) {
+        res.render("home", {user: username})
+        username = undefined
+    } else {
         res.redirect("/register")
     }
 })
 
-
-app.listen(port, () => console.log("backend running"))
+app.listen(PORT, () => {
+    console.log("backend running");
+})

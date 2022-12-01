@@ -1,12 +1,22 @@
 const PORT = 3000;
-const express = require("express");
+import express  from 'express';
+import {routes} from "./routes.js"
+import session from "express-session";
 const app = express();
 
 app.set('view engine', 'ejs');
 app.use("/assets", express.static('assets'));
 app.use(express.urlencoded({ extended: false }));
 
-require('./routes')(app);
+app.use(session({
+    secret: "hidden",
+    resave: true,
+    saveUninitialized: true
+}))
+
+
+
+routes(app, session)
 
 app.listen(PORT, () => {
     console.log("backend running");

@@ -12,3 +12,32 @@ export async function checkuser(username, password){
     [username, password])
     return rows
 } 
+
+export async function getuserbyid(id){
+    const [rows] = await pool.query("SELECT username FROM users WHERE id = ?", 
+    [id])
+    return rows
+}
+export async function getusernamebyid(username){
+    const [rows] = await pool.query("SELECT id FROM users WHERE username = ?", 
+    [username])
+    return rows
+}
+
+export async function adduser(username, password, email){
+    const result = await pool.query("INSERT users (username, password, email) VALUES (?, ?, ?)", 
+    [username, password, email])
+    return result
+} 
+
+export async function addmessages(message, user_id){
+    const result = await pool.query("INSERT messages (messages, user_id) VALUES (?, ?)", 
+    [message, user_id])
+    return result
+} 
+
+export async function getmessages(){
+    const [rows] = await pool.query("SELECT * FROM messages ORDER BY id DESC LIMIT 5 ")
+    return rows
+}
+

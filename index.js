@@ -1,7 +1,8 @@
 const PORT = 3000;
-import express  from 'express';
+import express, { json }  from 'express';
 import {routes} from "./routes.js"
 import session from "express-session";
+import { getuserbyid } from './database.js';
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -13,6 +14,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+
+
 
 
 

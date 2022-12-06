@@ -33,7 +33,27 @@
       </ul>
     </nav>
     <div class="container-sm position-absolute rounded" id="update">
-      <h1 class="update_text">Movovu</h1>
-    </div>
+      <form action="/message" method="post" class="form rounded">
+        <h3 class="title">Messages</h3>
+        <div class="mb-3">
+            <label for="username" class="form-label">Send a message</label>
+            <input type="text" class="form-control" id="message" name="message" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <% 
+          data.forEach(data => {
+              messenger.forEach(messenger => {
+                console.log(messenger.username)
+
+        %>
+          <p>
+              <%= messenger.username %> <%= data.messages %>
+          </p>
+        <% 
+            });
+          }); 
+        %> 
+        </form>
+      </div>
   </body>
 </html>

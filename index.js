@@ -2,7 +2,6 @@ const PORT = 3000;
 import express, { json }  from 'express';
 import {routes} from "./routes.js"
 import session from "express-session";
-import { getuserbyid } from './database.js';
 const app = express();
 
 app.set('view engine', 'ejs');

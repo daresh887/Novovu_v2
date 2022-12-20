@@ -25,27 +25,18 @@
         </div>
       </div>
     </nav>
-    <p class="welcome">Welcome, <%= user %>!</p>
     <nav class="navbar" id="sidebar">
-      <ul class="nav navbar-nav">
-        <li class="nav-item" id="vertical_text"><a class="nav-link" href="#">Events</a></li>
-        <li class="nav-item" id="vertical_text"><a class="nav-link" href="#">Friends</a></li>
-      </ul>
-    </nav>
-    <div class="container-sm position-absolute rounded" id="update">
-      <form action="/message" method="post" class="form rounded">
-        <h3 class="title">Messages</h3>
-        <div class="mb-3">
-            <label for="username" class="form-label">Send a message</label>
-            <input type="text" class="form-control" id="message" name="message" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-          <p>
-            <% messages.forEach(message => { %>
-              <%= message.whosent.username %>: <%= message.messages %> <br> 
-          <% }); %> 
-          </p>
-        </form>
-      </div>
-  </body>
+        <ul class="nav navbar-nav">
+          <li class="nav-item" id="vertical_text"><a class="nav-link" href="#">Events</a></li>
+          <li class="nav-item" id="vertical_text"><a class="nav-link" href="#">Friends</a></li>
+        </ul>
+      </nav>
+    <div>
+        <h1>RENDER POINT</h1>
+        <% messages.forEach(message => { %>
+            
+            <%= message.whosent.username %>: <%= message.messages %> <br> 
+        <% }); %> 
+    </div>
+</body>
 </html>

@@ -1,9 +1,6 @@
 import { addmessages, adduser, checkuser, getmessages, getuserbyid, getusernamebyid } from "./database.js"
 
-export function routes(app, session){
-
-
-
+export function routes(app){
 
   app.post("/register", async (req, res) => {
     const username = req.body.username;
@@ -39,36 +36,39 @@ export function routes(app, session){
 
 
   app.get("/", async (req, res) => {
-    const data_func = await getmessages()
+
     if(req.session.loggedin) {
-      // hello fellow people working with me i have no clue how this all works and how it doesnt
-      // but now that it does i am extremly happy 
-      // and if anybody smarter in the team finds a way to fix this nonsense code i will be extremly happy
-      // love - Mantas (MrMixerr) 
+      const messages = await getmessages()
+      const messageData = []
+      for (const message of messages) {
+        const [whosent] = await getuserbyid(message.id)
+        messageData.push({ messages: message.messages, whosent: whosent })
+      }
       const username = req.session.username
-      data_func.forEach(async data => {
-          var messenger = await getuserbyid(data.user_id)
-          res.render("home", {user: username, data:data_func, messenger:messenger})
-      });
-    } 
+      res.render("home", {messages: messageData, user:username})
+    }
     else {
       res.redirect("/login");
     } 
   })
+
   app.post("/message", async (req, res) => {
     const username = req.session.username
     const message = req.body.message
     var user_id = await getusernamebyid(username)
     
 
-    user_id.forEach(function(user_id, res) {
-      var new_id = user_id.id
-      addmessages(message, new_id)
-    });
-
+  user_id.forEach(function(user_id, res) {
+    var new_id = user_id.id
+    addmessages(message, new_id)
+  });
     res.redirect("/")
-
-
   })
+  
+  
+  
+  // app.get("/test", async (req, res) => {
+
+  // })
 }
 

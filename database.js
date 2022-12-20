@@ -14,7 +14,7 @@ export async function checkuser(username, password){
 } 
 
 export async function getuserbyid(id){
-    const [rows] = await pool.query("SELECT username FROM users WHERE id = ?", 
+    const [rows] = await pool.query("SELECT users.username FROM users JOIN messages ON users.id = messages.user_id WHERE messages.id = ?", 
     [id])
     return rows
 }

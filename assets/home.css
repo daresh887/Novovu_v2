@@ -3,12 +3,22 @@
 
 body {
     background-color: #f1f2eb;
-    animation: 2s ease-out 0s 1 FadeIn;
+    animation: 1s ease-out 0s 1 FadeIn;
 }
 
 p, a {
     font-family: 'Roboto Mono', monospace;
     color: #5E6472;
+}
+
+.btn {
+    background-color: #a4c2a5;
+    border: 0px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #a4c2a59d;
 }
 
 .update_container_text {
@@ -114,4 +124,29 @@ p, a {
 
 #logout {
     margin-left: 400px;
+}
+
+.things{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.item{
+    border-radius: 20px;
+    margin: 30px;
+    text-align: center;
+    background-color: #e7e7e4;
+    transition: ease-in-out 200ms;
+}
+.item:hover{
+    transform: scale(1.2);
+}
+.item > a > .logo{
+    padding: 30px;
+    width: 170px;
+    height: 170px;
+}
+.item > a > p{
+    padding: 1px;
+    width: 170px;
 }

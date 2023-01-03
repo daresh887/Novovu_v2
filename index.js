@@ -1,6 +1,6 @@
 const PORT = 3000;
-import express, { json }  from 'express';
-import {routes} from "./routes.js"
+import express from 'express';
+import {routes} from "./routes/routes.js"
 import session from "express-session";
 const app = express();
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%- include("layout/head") %> 
+  <body>
+    <%- include("layout/nav") %> 
+    <div class="things">
+        <% items.forEach(item => { %>
+        <div class="item">
+            <a href="item/<%= item.id %>">
+                <img class="logo" src="https://images.boardriders.com/global/quiksilver-products/all/default/hi-res/eqynp03041_unionpant,v_byj0_frt1.jpg" alt="">
+                <h4><%= item.name %></h4>
+                <p><%= item.desc %></p>
+                <p><%= item.price %>$</p>
+            </a>
+        </div>
+        <% }); %> 
+        
+  </body>
+</html>

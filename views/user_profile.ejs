@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <%- include("layout/head") %> 
+    <body>
+        <%- include("layout/nav") %> 
+            <% users.forEach(users => { %>
+                <div class="p-5">
+                    <img class="logo w-10" src="https://pbs.twimg.com/profile_images/1100594156718702593/_p_SyfuH_400x400.png" alt="">
+                    <h2>this is <%= users.username %> profile</h2>
+                    <p>users id: <%= users.id %></p>
+                    <p>user got: <%= users.cash %>$</p>
+                </div>
+            <% }); %>
+            </div>
+        </div>
+    </body>
+</html>
